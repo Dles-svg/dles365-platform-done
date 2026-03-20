@@ -1,0 +1,23 @@
+[build]
+  base = "."
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20.11.0"
+
+[[redirects]]
+  from = "https://www.dles365.com/*"
+  to = "https://dles365.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Service-Worker-Allowed = "/"
